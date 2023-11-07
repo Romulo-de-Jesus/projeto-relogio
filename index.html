@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: "Film";
+            src: url("Film\ Noir\ Adventure.ttf");
+        }
+        body{
+
+            background: linear-gradient(120deg, rgb(255, 188, 43), orange);
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+        .time{
+            background-color: rgb(37, 11, 1);
+            padding: 40px 40px;
+            display: inline-block;
+            margin: 10px;
+            box-shadow: 0px 5px 10px  black ;
+            color: white;
+            font-size: 40px;
+            font-family: "Film";
+            text-align: center;
+        }
+        #timegroup{
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        div{
+            color: white;
+            font-size: 20px;
+            font-family: "Film";
+
+        }
+        .texto{
+            display: inline-block;
+            padding: 40px 33px;
+
+        }
+        #timegroup2{
+            position: fixed;
+            top: 50%;
+            left: 50vw;
+            transform: translateX(-50%);
+            text-shadow: -2px 2px #000000
+            
+        }
+
+    </style>
+</head>
+<body>
+    <div id="timegroup">
+        <div class="time" id="t_horas"><p>0</p></div>
+        <div class="time" id="t_minutos"><p>0</p></div>
+        <div class="time" id="t_segundos"><p>0</p></div>
+    </div>
+    <div id="timegroup2">
+        <br>
+        <div class="texto"><p>horas</p></div>
+        <div class="texto"><p>minutos</p></div>
+        <div class="texto"><p>segundos</p></div>
+    </div>
+</body>
+<script>
+
+    const horas = document.getElementById("t_horas")
+    const minutos = document.getElementById("t_minutos")
+    const segundos = document.getElementById("t_segundos")
+
+    const relogio = setInterval(function time(){
+        let dateToday = new Date();
+        let hr = dateToday.getHours();
+        let min = dateToday.getMinutes();
+        let s = dateToday.getSeconds();
+
+        if (hr < 10){
+            hr = "0" + hr
+        }
+        if (min < 10){
+            min = "0" + min
+        }
+        if (s < 10){
+            s = "0" + s
+        }       
+
+        horas.innerHTML = hr;
+        minutos.innerHTML = min;
+        segundos.innerHTML = s;
+        console.log(hr + " " + min + " " + s)
+    })
+</script>
+</html>
